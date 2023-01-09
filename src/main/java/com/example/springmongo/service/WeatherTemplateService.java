@@ -11,6 +11,7 @@ import org.springframework.data.mongodb.core.aggregation.AggregationOperation;
 import org.springframework.data.mongodb.core.aggregation.AggregationResults;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -59,6 +60,14 @@ public class WeatherTemplateService {
         for(Weather entity : weatherList.getMappedResults()){
             System.out.println(entity);
         }
+    }
+
+    public void updateFirstWeatherWithNewCallLetters(String id, String newCallLetters){
+        Query query = new Query();
+        query.addCriteria(Criteria.where("id").is(id));
+        Update update = new Update();
+        update.set("callLetters", newCallLetters);
+        mongoTemplate.updateFirst(query, update, Weather.class);
     }
 
 }

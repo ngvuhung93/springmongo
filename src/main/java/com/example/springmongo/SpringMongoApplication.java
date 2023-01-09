@@ -37,6 +37,11 @@ public class SpringMongoApplication implements CommandLineRunner {
 		//weatherTemplateService.printWeatherByCallLetters(callLetters);
 		//weatherTemplateService.printWeatherByCallLettersPattern("^VCS");
 		//weatherTemplateService.printWeatherBetweenAirTemperatureDesc(25,30, 0, 5);
-		//weatherTemplateService.printWeatherBetweenAirTemperatureDescWithAggregation(25,30);
+		weatherTemplateService.printWeatherBetweenAirTemperatureDescWithAggregation(25,30);
+
+		/*weatherTemplateService.updateFirstWeatherWithNewCallLetters("5553a99ae4b02cf715120f10","SFTP");
+		weatherTemplateService.printWeatherByCallLetters("SFTP");
+		// revert the changes
+		weatherTemplateService.updateFirstWeatherWithNewCallLetters("5553a99ae4b02cf715120f10","SHIP");*/
 	}
 }
